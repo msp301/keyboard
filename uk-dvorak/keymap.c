@@ -10,12 +10,22 @@
 #include "keymap_canadian_multilingual.h"
 #include "keymap_german_ch.h"
 #include "keymap_jp.h"
+#include "keymap_korean.h"
 #include "keymap_bepo.h"
 #include "keymap_italian.h"
 #include "keymap_slovenian.h"
+#include "keymap_lithuanian_azerty.h"
 #include "keymap_danish.h"
 #include "keymap_norwegian.h"
 #include "keymap_portuguese.h"
+#include "keymap_contributions.h"
+#include "keymap_czech.h"
+#include "keymap_romanian.h"
+#include "keymap_russian.h"
+#include "keymap_uk.h"
+#include "keymap_estonian.h"
+#include "keymap_belgian.h"
+#include "keymap_us_international.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -37,12 +47,13 @@ enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
 };
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(3),                                          TG(3),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_TAB,         KC_SLASH,       KC_COMMA,       KC_DOT,         KC_P,           KC_Y,           TG(1),                                          TG(1),          KC_F,           KC_G,           KC_C,           KC_R,           KC_L,           KC_BSLASH,
     KC_ESCAPE,      KC_A,           KC_O,           KC_E,           KC_U,           KC_I,                                                                           KC_D,           KC_H,           KC_T,           KC_N,           LT(2,KC_S),     LGUI_T(KC_QUOTE),
-    KC_LSHIFT,      LCTL_T(KC_SCOLON),KC_Q,           KC_J,           KC_K,           KC_X,           KC_HYPR,                                        KC_MEH,         KC_B,           KC_M,           KC_W,           KC_V,           RCTL_T(KC_Z),   KC_RSHIFT,
+    KC_LSHIFT,      LCTL_T(KC_SCOLON),KC_Q,           KC_J,           KC_K,           KC_X,           KC_MEH,                                         KC_MEH,         KC_B,           KC_M,           KC_W,           KC_V,           RCTL_T(KC_Z),   KC_RSHIFT,
     LT(1,KC_GRAVE), KC_NONUS_BSLASH,LALT(KC_LSHIFT),KC_LEFT,        KC_RIGHT,                                                                                                       KC_UP,          KC_DOWN,        KC_LBRACKET,    KC_RBRACKET,    MO(1),
                                                                                                     LALT_T(KC_APPLICATION),KC_LGUI,        KC_RALT,        LCTL_T(KC_ESCAPE),
                                                                                                                     KC_HOME,        KC_PGUP,
@@ -125,3 +136,4 @@ uint32_t layer_state_set_user(uint32_t state) {
   }
   return state;
 };
+
