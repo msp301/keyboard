@@ -11,6 +11,7 @@ QMK_KEYBOARDS_DIR="${QMK_DIR}/keyboards"
 SRC_DIRS=( $(fd -t f "." "$KEYBOARDS_DIR" | xargs -I{} dirname {} | sort -u | xargs -I{} realpath -s --relative-to="$KEYBOARDS_DIR" {}) )
 
 git submodule update --init --recursive
+qmk setup -H "${QMK_DIR}" -y
 
 for keyboard in "${SRC_DIRS[@]}"; do
     KEYMAP_DIR="${KEYBOARDS_DIR}/${keyboard}"
