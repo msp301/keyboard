@@ -3,6 +3,8 @@
 SCRIPT=$(readlink -f $0)
 REPO_DIR="$(dirname $SCRIPT)"
 
+TARGET="${1:-all}"
+
 BUILD_DIR="${REPO_DIR}/build"
 KEYBOARDS_DIR="${REPO_DIR}/keyboards"
 QMK_DIR="${REPO_DIR}/qmk_firmware"
@@ -14,6 +16,11 @@ git submodule update --init --recursive
 qmk setup -H "${QMK_DIR}" -y
 
 for keyboard in "${SRC_DIRS[@]}"; do
+
+    if [ "$TARGET" != "all" ] && [[ "/$keyboard/" != *"/$TARGET/"* ]]; then
+        continue
+    fi
+
     KEYMAP_DIR="${KEYBOARDS_DIR}/${keyboard}"
     QMK_KEYMAP_DIR="${QMK_KEYBOARDS_DIR}/${keyboard}/keymaps/${USER}"
 
