@@ -15,6 +15,7 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "keymap_uk.h"
 
 // clang-format off
 
@@ -28,19 +29,19 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_iso_62(
-        KC_ESC,        KC_1,               KC_2,         KC_3,     KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,          KC_MINUS,         KC_EQUAL,         KC_BACKSPACE,
-        KC_TAB,        KC_SLASH,           KC_COMMA,     KC_DOT,   KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,          KC_LEFT_BRACKET,  KC_RIGHT_BRACKET,
-        KC_ESC,        KC_A,               KC_O,         KC_E,     KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,          KC_QUOTE,         KC_NONUS_HASH,    KC_ENTER,
-        KC_LEFT_SHIFT, KC_NONUS_BACKSLASH, KC_SEMICOLON, KC_Q,     KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,          KC_Z,             KC_RIGHT_SHIFT,
-        KC_LEFT_CTRL,  KC_LEFT_GUI,        KC_LEFT_ALT,                              KC_SPC,                             KC_RIGHT_GUI,  MO(_FN1),         MO(_FN3),         KC_RIGHT_CTRL
+        KC_ESC,        KC_1,               KC_2,         KC_3,                 KC_4,                 KC_5,        KC_6,         KC_7,          KC_8,              KC_9,    KC_0,          KC_MINUS,         KC_EQUAL,         KC_BACKSPACE,
+        KC_TAB,        KC_SLASH,           KC_COMMA,     KC_DOT,               KC_P,                 KC_Y,        KC_F,         KC_G,          KC_C,              KC_R,    KC_L,          KC_LEFT_BRACKET,  KC_RIGHT_BRACKET,
+        KC_ESC,        KC_A,               KC_O,         KC_E,                 KC_U,                 KC_I,        KC_D,         KC_H,          KC_T,              KC_N,    KC_S,          KC_QUOTE,         KC_NONUS_HASH,    KC_ENTER,
+        KC_LEFT_SHIFT, KC_NONUS_BACKSLASH, KC_SEMICOLON, KC_Q,                 KC_J,                 KC_K,        KC_X,         KC_B,          KC_M,              KC_W,    KC_V,          KC_Z,             KC_RIGHT_SHIFT,
+        KC_LEFT_CTRL,  KC_LEFT_GUI,        KC_LEFT_ALT,                                                           KC_SPC,                                                  KC_RIGHT_GUI,  MO(_FN1),         MO(_FN3),         KC_RIGHT_CTRL
     ),
 
     [_SYMBOLS] = LAYOUT_iso_62(
-        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______,       _______,          _______,          _______,
-        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______,       _______,          _______,
-        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______,       _______,          _______,          _______,
-        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______        _______,          _______,
-        _______,       _______,            _______,                                  _______,                            _______        _______,          _______           _______
+        _______,       KC_F1,              KC_F2,        KC_F3,                KC_F4,                KC_F5,       KC_F6,        KC_F7,           KC_F8,           KC_F9,    KC_F10,        KC_F11,           KC_F12,           KC_DELETE,
+        _______,       KC_EXCLAIM,         _______,      KC_LT,                KC_GT,                KC_ASTERISK, _______,      KC_LEFT_PAREN,   KC_MINUS,        KC_PLUS,  _______,       _______,          _______,
+        _______,       UK_COLN,            KC_DOLLAR,    KC_LEFT_CURLY_BRACE,  KC_RIGHT_CURLY_BRACE, KC_PERCENT,  KC_AMPERSAND, KC_LEFT_BRACKET, KC_LEFT_BRACKET, KC_MINUS, KC_EQUAL,      UK_DQUO,          UK_TILD,          _______,
+        _______,       _______,            _______,      KC_LEFT,              KC_RIGHT,             _______,     _______,      _______,         KC_UP,           KC_DOWN,  _______        _______,          _______,
+        KC_GRAVE,      _______,            _______,                                                               _______,                                                  _______        _______,          _______           _______
     ),
 
     [_FN1] = LAYOUT_iso_62(
