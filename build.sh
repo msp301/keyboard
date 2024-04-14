@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SCRIPT=$(readlink -f $0)
 REPO_DIR="$(dirname $SCRIPT)"
@@ -10,7 +10,7 @@ KEYBOARDS_DIR="${REPO_DIR}/keyboards"
 QMK_DIR="${REPO_DIR}/qmk_firmware"
 QMK_KEYBOARDS_DIR="${QMK_DIR}/keyboards"
 
-SRC_DIRS=( $(fd -t f "." "$KEYBOARDS_DIR" | xargs -I{} dirname {} | sort -u | xargs -I{} realpath -s --relative-to="$KEYBOARDS_DIR" {}) )
+SRC_DIRS=( $(find "$KEYBOARDS_DIR" -type f | xargs -I{} dirname {} | sort -u | xargs -I{} realpath -s --relative-to="$KEYBOARDS_DIR" {}) )
 
 git submodule update --init --recursive
 qmk setup -H "${QMK_DIR}" -y
@@ -30,5 +30,5 @@ for keyboard in "${SRC_DIRS[@]}"; do
 
     make BUILD_DIR="${BUILD_DIR}" -C "${QMK_DIR}" "${keyboard}:${USER}"
 
-    rm -f "${QMK_KEYMAP_DIR}"
+    rm -rf "${QMK_KEYMAP_DIR}"
 done
