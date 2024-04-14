@@ -19,27 +19,29 @@
 // clang-format off
 
 enum layers {
-    MAC_BASE,
-    WIN_BASE,
+    _BASE,
+    _SYMBOLS,
     _FN1,
     _FN2,
     _FN3
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [MAC_BASE] = LAYOUT_iso_62(
-        KC_ESC,  KC_1,     KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,
-        KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,
-        KC_CAPS, KC_A,     KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,
-        KC_LSFT, KC_NUBS,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH,            KC_RSFT,
-        KC_LCTL, KC_LOPT,  KC_LCMD,                            KC_SPC,                             KC_RCMD,  MO(_FN1), MO(_FN3), KC_RCTL),
+    [_BASE] = LAYOUT_iso_62(
+        KC_ESC,        KC_1,               KC_2,         KC_3,     KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,          KC_MINUS,         KC_EQUAL,         KC_BACKSPACE,
+        KC_TAB,        KC_SLASH,           KC_COMMA,     KC_DOT,   KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,          KC_LEFT_BRACKET,  KC_RIGHT_BRACKET,
+        KC_ESC,        KC_A,               KC_O,         KC_E,     KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,          KC_QUOTE,         KC_NONUS_HASH,    KC_ENTER,
+        KC_LEFT_SHIFT, KC_NONUS_BACKSLASH, KC_SEMICOLON, KC_Q,     KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,          KC_Z,             KC_RIGHT_SHIFT,
+        KC_LEFT_CTRL,  KC_LEFT_GUI,        KC_LEFT_ALT,                              KC_SPC,                             KC_RIGHT_GUI,  MO(_FN1),         MO(_FN3),         KC_RIGHT_CTRL
+    ),
 
-    [WIN_BASE] = LAYOUT_iso_62(
-        KC_ESC,  KC_1,     KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,
-        KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,
-        KC_CAPS, KC_A,     KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,
-        KC_LSFT, KC_NUBS,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH,            KC_RSFT,
-        KC_LCTL, KC_LGUI,  KC_LALT,                            KC_SPC,                             KC_RALT,  MO(_FN2), MO(_FN3), KC_RCTL),
+    [_SYMBOLS] = LAYOUT_iso_62(
+        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______,       _______,          _______,          _______,
+        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______,       _______,          _______,
+        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______,       _______,          _______,          _______,
+        _______,       _______,            _______,      _______,  _______, _______, _______, _______, _______, _______, _______        _______,          _______,
+        _______,       _______,            _______,                                  _______,                            _______        _______,          _______           _______
+    ),
 
     [_FN1] = LAYOUT_iso_62(
         KC_GRV,  KC_BRID,  KC_BRIU, KC_NO,   KC_NO,   RGB_VAD, RGB_VAI, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  RGB_MOD,
